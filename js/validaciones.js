@@ -1,11 +1,11 @@
-export function valida(input) {       //este input es el que va a estar ligado al archivo que se vaya generando y el export no s permitira usarlo en otros lugares la informacion
-    const tipoDeInput = input.dataset.tipo;
+export function valida(input) {       
+    const tipoDeInput = input.dataset.tipo;  
     if(validadores[tipoDeInput]) { 
       validadores[tipoDeInput](input);
     }
 
-    if(input.validity.valid){                           // utilizamos este if si es valido o el validity si estrue quitar ala clse y si es false signifaca que no es valido y va a agregarla
-        input.parentElement.classList.remove("input-container--invalid"); 
+    if(input.validity.valid){                           
+        input.parentElement.classList.remove("input-container--invalid");     
         input.parentElement.querySelector(".input-message-error").innerHTML = "";
     }   else {
         input.parentElement.classList.add("input-container--invalid"); 
@@ -22,11 +22,11 @@ const tipoDeErrores  = [
 ]
 
 
-const mensajesDeError ={         //cuando el ususario est ainteractuando, en caso de no ser valido aqui podremos checar en cada uno de los elementos si es valido o no, 
+const mensajesDeError ={       
     nombre:{
-        valueMissing: "El campo nombre no puede estar vacio",  //la ventaja de estos elementos se traen los errores en diferentes idiomas aquis se podan solucionar los valos si estan con esta organizacion
+        valueMissing: "El campo nombre no puede estar vacio",  
+    email:{                                                     
     },
-    email:{
         valueMissing: "El campo  enail no puede estar vacio",
         typeMismatch: "El correo no es valido"
     },
@@ -90,5 +90,5 @@ function mayorDeEdad(fecha) {
         fecha.getUTCMonth(),
         fecha.getUTCDate()
     );  
-    return diferenciaFechas <= fechaActual; //podemos invertir fechaActual<=diferenciafechas para cuando querramos saber si es menor, para no cambiar sigo <= u =>
+    return diferenciaFechas <= fechaActual; 
 }

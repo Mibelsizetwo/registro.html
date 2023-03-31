@@ -1,9 +1,9 @@
-import { valida } from "./validaciones.js";   //para jalar la info se coloca import, valida y enter .
+import { valida } from "./validaciones.js";   
 
-const inputs = document.querySelectorAll("input");     //esta funcion va a agregar todos los input y le va a agregar el abs lainer del blur a la informacion de los codigos de abajo
+const inputs = document.querySelectorAll("input");     
+inputs.forEach(( input )=> {                          
 
-inputs.forEach(( input )=> {
     input.addEventListener("blur", (input) => {
-      valida(input.target);                      //cuando mande la funcion de arriba la info,el foco  va a mandar a esta funcion que es valida,va a revisar el input y lo revisara
-    });
+      valida(input.target);                      
+    });                                        
 });
